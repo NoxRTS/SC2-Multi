@@ -5,6 +5,8 @@ namespace SC2_Multi
         public Form1()
         {
             InitializeComponent();
+            var version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
+            Text = $"SC2 Multi-Instance v{version!.Major}.{version.Minor}.{version.Build}";
         }
 
         private async void btnCloseHandles_Click(object sender, EventArgs e)
