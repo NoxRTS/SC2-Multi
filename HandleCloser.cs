@@ -26,6 +26,7 @@ internal static class HandleCloser
         }
 
         var pids = new HashSet<uint>(procs.Select(p => (uint)p.Id));
+        foreach (var p in procs) p.Dispose();
         log.Add($"Found {pids.Count} SC2_x64.exe process(es): PID {string.Join(", ", pids)}");
 
         nint buffer = 0;
@@ -190,6 +191,8 @@ internal static class HandleCloser
                        or NativeMethods.STATUS_BUFFER_TOO_SMALL
                        or NativeMethods.STATUS_INFO_LENGTH_MISMATCH)
             {
+                if (needed <= size)
+                    return null;
                 Marshal.FreeHGlobal(buf);
                 size = needed;
                 buf = Marshal.AllocHGlobal(size);

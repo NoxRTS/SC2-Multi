@@ -22,17 +22,17 @@ namespace SC2_Multi
             }
             finally
             {
-                    btnCloseHandles.Enabled = true;
-                    }
-                }
+                btnCloseHandles.Enabled = true;
+            }
+        }
 
-                private void lnkGitHub_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-                {
-                    System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
-                    {
-                        FileName = "https://github.com/NoxRTS",
-                        UseShellExecute = true
-                    });
-                }
+        private void lnkGitHub_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+            {
+                FileName = "https://github.com/NoxRTS",
+                UseShellExecute = true
+            });
+        }
     }
 }
