@@ -5,6 +5,7 @@ namespace SC2_Multi
         public Form1()
         {
             InitializeComponent();
+            Icon = Icon.ExtractAssociatedIcon(Environment.ProcessPath!);
             var version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
             Text = $"SC2 Multi-Instance v{version!.Major}.{version.Minor}.{version.Build}";
         }
